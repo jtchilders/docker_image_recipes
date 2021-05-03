@@ -1,14 +1,17 @@
 FROM centos:latest
-MAINTAINER Romit rmaulik@anl.gov
+MAINTAINER jchilders@anl.gov
 
 WORKDIR /hello_world
 
+RUN echo $PWD
+RUN echo $(pwd -LP)
+RUN ls -al
 RUN yum update -y
 RUN yum groupinstall -y "Development Tools"
 RUN yum install -y gcc-c++
 
-COPY source/hello_world.cpp .
-COPY submit.sh .
+COPY dockerfiles/hello_world/source/hello_world.cpp .
+COPY dockerfiles/hello_world/submit.sh .
 
 RUN chmod +x submit.sh
 
