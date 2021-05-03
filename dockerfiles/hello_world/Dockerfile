@@ -10,8 +10,8 @@ RUN yum update -y
 RUN yum groupinstall -y "Development Tools"
 RUN yum install -y gcc-c++
 
-COPY dockerfiles/hello_world/source/hello_world.cpp .
-COPY dockerfiles/hello_world/submit.sh .
+COPY source/hello_world.cpp .
+COPY submit.sh .
 
 RUN chmod +x submit.sh
 
